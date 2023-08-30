@@ -17,6 +17,7 @@ function throwClientError(field: string): any {
 }
 
 export default ({
+<<<<<<< HEAD
   routerProps
 }: {
   /**
@@ -32,6 +33,20 @@ export default ({
   //   <StartClient routerProps={routerProps as unknown as undefined} />
   routerProps?: Pick<RouterProps, 'source'>
 } = {}) => {
+||||||| parent of 4b71da72 (feat: Allow passing in `routerSource` to `<StartClient`)
+export default () => {
+=======
+  routerSource
+}: {
+  /**
+   * Set `<Router source` to something other than `pathIntegration`.
+   * 
+   * This can be useful if you are embedding a SolidStart app into a larger app,
+   * and don't want to interfere with the larger app's url.
+   */
+  routerSource?: RouterProps['source']
+}) => {
+>>>>>>> 4b71da72 (feat: Allow passing in `routerSource` to `<StartClient`)
   let mockFetchEvent: PageEvent = {
     get request() {
       if (process.env.NODE_ENV === "development") {
@@ -110,7 +125,13 @@ export default ({
   return (
     <ServerContext.Provider value={mockFetchEvent}>
       <MetaProvider>
+<<<<<<< HEAD
         <StartRouter base={basePath} data={dataFn} {...routerProps}>
+||||||| parent of 4b71da72 (feat: Allow passing in `routerSource` to `<StartClient`)
+        <StartRouter base={basePath} data={dataFn}>
+=======
+        <StartRouter base={basePath} data={dataFn} source={routerSource}>
+>>>>>>> 4b71da72 (feat: Allow passing in `routerSource` to `<StartClient`)
           <Root />
         </StartRouter>
       </MetaProvider>

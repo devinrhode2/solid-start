@@ -1,3 +1,5 @@
 import StartClient from "../entry-client/StartClient";
 
-StartClient();
+StartClient({
+  routerSource: undefined
+});
